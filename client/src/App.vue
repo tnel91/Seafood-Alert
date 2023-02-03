@@ -1,15 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <NavBar />
+  <LandingPage />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LandingPage from './components/LandingPage.vue'
+import NavBar from './components/NavBar.vue';
+import 'bootstrap/dist/css/bootstrap.css'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    LandingPage,
+    NavBar
   }
 }
 </script>
@@ -21,6 +24,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 0 auto
+}
+
+[class*="col-"] {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  text-align: center;
 }
 </style>
