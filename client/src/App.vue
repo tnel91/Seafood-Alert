@@ -4,9 +4,9 @@
 </template>
 
 <script>
-import LandingPage from './components/LandingPage.vue'
+import LandingPage from './components/LandingPage.vue';
 import NavBar from './components/NavBar.vue';
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default {
   name: 'App',
