@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <NavBar />
+    <div class="fixed-top">
+      <NavBar />
+    </div>
     <main>
       <RouterView header="Fish Guide" :removePath="removePath"></RouterView>
     </main>
@@ -36,10 +38,24 @@ export default {
 }
 
 [class*="col-"] {
-  background-color: #eee;
-  border: 1px solid #ddd;
+  /* background-color: #eee; */
+  /* border: 1px solid #ddd; */
   padding-bottom: 15px;
   padding-top: 15px;
   text-align: center;
 }
+
+nav {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  padding-top: 10px;
+  /* position: fixed; */
+  height: 80px;
+}
+
+main {
+  position: relative;
+  top: 80px;
+}
+
 </style>

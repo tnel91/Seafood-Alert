@@ -1,11 +1,13 @@
 <template>
-  <div class="container">
+  <nav>
     <div class="row">
-      <div class="col-sm-4">AAAAAA</div>
-      <div class="col-sm-4">BBBBBB</div>
-      <div class="col-sm-4">CCCCCC</div>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <h2>Seafood Alert</h2>
+      </div>
+      <div class="col-sm-4"></div>
     </div>
-  </div>
+  </nav>
 
 </template>
 
@@ -17,4 +19,5 @@ name: 'NavBar',
 </script>
 
 <style>
+
 </style>
