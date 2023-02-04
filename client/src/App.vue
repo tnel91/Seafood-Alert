@@ -56,7 +56,9 @@ nav {
 }
 
 main {
+  background-color: rgb(170, 255, 255);
   position: relative;
   top: 80px;
+  min-height: 800px;
 }
 </style>

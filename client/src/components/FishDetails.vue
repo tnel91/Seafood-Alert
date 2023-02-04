@@ -1,5 +1,5 @@
 <template>
-  <div id="details" class="text-center container">
+  <div class="text-center container">
     <div v-if="fish" class="row">
       <div id="illustration" class="col-12">
         <img
@@ -9,87 +9,67 @@
         />
       </div>
 
-      <div class="col-12">
-        <h3 class="p-3 mb-3">{{ fish['Species Name'] }}</h3>
-      </div>
-
-      <div class="col-sm-6">
-        <span class="mx-2">Scientific Name:</span>
-        <h5 class="italic mx-2 mb-0">
+      <div class="col-12 flex-column">
+        <h2 class="mb-3">{{ fish['Species Name'] }}</h2>
+        <h5 class="italic mb-3">
           {{ fish['Scientific Name'] }}
         </h5>
+        <p class="mb-1"><b>Other names</b></p>
+        <div id="aliases" class="" v-html="fish['Species Aliases']"></div>
       </div>
 
-      <div class="col-sm-6">
-        <u class="mx-2">Other names:</u>
-        <div id="aliases" class="mx-2" v-html="fish['Species Aliases']"></div>
+      <div class="col-12 container">
+        <button @click="togglePages('FishBiology')" class="col-3">
+          Biology
+        </button>
+        <button @click="togglePages('FishFisheries')" class="col-3">
+          Fisheries
+        </button>
+        <button @click="togglePages('FishResearch')" class="col-3">
+          Research
+        </button>
+        <button @click="togglePages('FishGallery')" class="col-3">
+          Gallery
+        </button>
       </div>
 
-      <div class="col-12">
-        <div class="" v-html="fish['Physical Description']"></div>
+      <div id="FishBiology" class="sect col-12">
+        <FishBiology :fish="fish" />
       </div>
 
-      <div class="col-12">
-        <div class="" v-html="fish['Location']"></div>
+      <div id="FishFisheries" class="sect col-12">
+        <FishFisheries :fish="fish" />
       </div>
 
-      <div class="col-12 col-md-6">
-        <div class="" v-html="fish['Habitat']"></div>
+      <div id="FishResearch" class="sect col-12">
+        <FishResearch :fish="fish" />
       </div>
 
-      <div class="col-12 col-md-6">
-        <p class="">{{ fish['Population'] }}</p>
+      <div id="FishGallery" class="sect col-12">
+        <FishGallery :fish="fish" />
       </div>
 
-      <div class="col-12">
-        <p class="">{{ fish['Habitat Impacts'] }}</p>
-      </div>
-
-      <div class="py-0 col-12 container">
-        <div class="row">
-          <div
-            class="col-12 col-sm-6 col-md-4 col-lg-3 img-container"
-            v-for="(image, i) in fish['Image Gallery']"
-            :key="i"
-          >
-            <img class="img-fluid" :src="image.src" :alt="image.title" />
-            <p class="text-center">{{ image['title'] }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6">
-        <div class="" v-html="fish['Availability']"></div>
-      </div>
-
-      <div>
-        <div class="border p-3 mb-3 container" v-html="fish['Biology']"></div>
-      </div>
-
-      <div>
-        <p class="border p-3 mb-3 container">{{ fish['Fishing Rate'] }}</p>
-      </div>
-
-      <div>
-        <div class="border p-3 mb-3 container" v-html="fish['Research']"></div>
-      </div>
-
-      <!-- <div class="border p-3 mb-3 container" v-html="fish['Fishery Management']"></div> -->
-      <!-- <div class="border p-3 mb-3 container" v-html="fish['Management']"></div> -->
-      <!-- <div class="border p-3 mb-3 container" v-html="fish['Population Status']"></div> -->
-      <!-- <div class="border p-3 mb-3 container" v-html="fish['Animal Health']"></div> -->
-      <!-- <div class="border p-3 mb-3 container" v-html="fish['Harvest']"></div> -->
-      <!-- <p class="border p-3 mb-3 container">{{ fish['Quote'] }}</p> -->
-      <!-- <p class="border p-3 mb-3 container">{{ fish['Bycatch'] }}</p> -->
+      <p class="border p-3 mb-3 container">{{ fish['Quote'] }}</p>
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import FishBiology from './FishBiology.vue'
+import FishFisheries from './FishFisheries.vue'
+import FishResearch from './FishResearch.vue'
+import FishGallery from './FishGallery.vue'
 
 export default {
   name: 'FishDetails',
+
+  components: {
+    FishBiology,
+    FishFisheries,
+    FishResearch,
+    FishGallery
+  },
 
   data: () => ({
     fish: null
@@ -102,6 +82,22 @@ export default {
   },
 
   methods: {
+    togglePages(page) {
+      const pages = [
+        'FishBiology',
+        'FishFisheries',
+        'FishResearch',
+        'FishGallery'
+      ]
+      pages.forEach((p) => {
+        if (p === page) {
+          document.getElementById(p).style.display = 'block'
+        } else {
+          document.getElementById(p).style.display = 'none'
+        }
+      })
+    },
+
     stringToHtml(str) {
       const parser = new DOMParser()
       const doc = parser.parseFromString(str, 'text/html')
@@ -124,6 +120,14 @@ export default {
 </script>
 
 <style>
+.sect {
+  display: none;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
 .italic {
   font-style: italic;
 }
