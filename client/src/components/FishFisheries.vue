@@ -4,10 +4,6 @@
   </div>
 
   <div class="">
-    <div class="" v-html="fish['Location']"></div>
-  </div>
-
-  <div class="">
     <div class="" v-html="fish['Habitat']"></div>
   </div>
 

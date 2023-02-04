@@ -1,10 +1,18 @@
 <template>
-  <div class="">
-    <div class="" v-html="fish['Physical Description']"></div>
-  </div>
-
-  <div>
-    <div class="border p-3 mb-3 container" v-html="fish['Biology']"></div>
+  <div id="bio-info" class="row">
+    <div
+      class="col-12 p-0"
+      v-for="(section, i) in sections"
+      :key="i"
+      @click="toggleSection(i)"
+    >
+      <p v-if="section.content" :name="section.slotName">
+        {{ section.slotName }}
+      </p>
+      <div class="content" v-if="section.isActive">
+        <div v-html="section.content"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -14,8 +22,38 @@ export default {
   name: 'FishBiology',
   props: {
     fish: Object
+  },
+  data: () => ({
+    sections: null
+  }),
+  methods: {
+    toggleSection(i) {
+      console.log('toggleSection', i)
+      this.sections[i].isActive = !this.sections[i].isActive
+    }
+  },
+  created() {
+    this.sections = [
+      {
+        content: this.fish['Physical Description'],
+        slotName: 'physical-description',
+        isActive: false
+      },
+      { content: this.fish['Biology'], slotName: 'biology', isActive: false },
+      { content: this.fish['Location'], slotName: 'location', isActive: false },
+      { content: this.fish['Research'], slotName: 'research', isActive: false }
+    ]
   }
 }
 </script>
 
-<style></style>
+<style>
+#bio-info > div {
+  flex-direction: column;
+  text-align: left;
+}
+
+.content {
+  width: 100%;
+}
+</style>

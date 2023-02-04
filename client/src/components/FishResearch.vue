@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="" v-html="fish['Research']"></div>
+    <!-- <div class="" v-html="fish['Research']"></div> -->
   </div>
 </template>
 

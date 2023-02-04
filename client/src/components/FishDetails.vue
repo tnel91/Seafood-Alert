@@ -19,16 +19,13 @@
       </div>
 
       <div class="col-12 container">
-        <button @click="togglePages('FishBiology')" class="col-3">
+        <button @click="togglePages('FishBiology')" class="col-4">
           Biology
         </button>
-        <button @click="togglePages('FishFisheries')" class="col-3">
+        <button @click="togglePages('FishFisheries')" class="col-4">
           Fisheries
         </button>
-        <button @click="togglePages('FishResearch')" class="col-3">
-          Research
-        </button>
-        <button @click="togglePages('FishGallery')" class="col-3">
+        <button @click="togglePages('FishGallery')" class="col-4">
           Gallery
         </button>
       </div>
@@ -39,10 +36,6 @@
 
       <div id="FishFisheries" class="sect col-12">
         <FishFisheries :fish="fish" />
-      </div>
-
-      <div id="FishResearch" class="sect col-12">
-        <FishResearch :fish="fish" />
       </div>
 
       <div id="FishGallery" class="sect col-12">
@@ -58,7 +51,6 @@
 import axios from 'axios'
 import FishBiology from './FishBiology.vue'
 import FishFisheries from './FishFisheries.vue'
-import FishResearch from './FishResearch.vue'
 import FishGallery from './FishGallery.vue'
 
 export default {
@@ -67,7 +59,6 @@ export default {
   components: {
     FishBiology,
     FishFisheries,
-    FishResearch,
     FishGallery
   },
 
@@ -83,12 +74,7 @@ export default {
 
   methods: {
     togglePages(page) {
-      const pages = [
-        'FishBiology',
-        'FishFisheries',
-        'FishResearch',
-        'FishGallery'
-      ]
+      const pages = ['FishBiology', 'FishFisheries', 'FishGallery']
       pages.forEach((p) => {
         if (p === page) {
           document.getElementById(p).style.display = 'block'
@@ -106,15 +92,29 @@ export default {
   },
 
   async created() {
-    await axios
-      .get(`https://www.fishwatch.gov/api/species/${this.$route.params.id}`)
-      .then((res) => {
-        const oneFish = res.data[0]
-        this.fish = oneFish
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    await setTimeout(() => {
+      axios
+        .get(`https://www.fishwatch.gov/api/species/${this.$route.params.id}`)
+        .then((res) => {
+          const oneFish = res.data[0]
+          this.fish = oneFish
+        })
+        .catch(() => {
+          console.log('ERROR Trying Again...')
+          axios
+            .get(
+              `https://www.fishwatch.gov/api/species/${this.$route.params.id}`
+            )
+            .then((res) => {
+              const oneFish = res.data[0]
+              this.fish = oneFish
+            })
+            .catch((err) => {
+              console.log('ERROR')
+              console.log(err)
+            })
+        })
+    }, 200)
   }
 }
 </script>
@@ -160,6 +160,7 @@ export default {
 .img-container:hover p {
   display: block;
   position: absolute;
+  color: black;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 0.5rem;
 }
