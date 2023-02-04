@@ -1,19 +1,21 @@
 <template>
-  <NavBar />
-  <LandingPage />
+  <div id="app">
+    <NavBar />
+    <main>
+      <RouterView header="Fish Guide"></RouterView>
+    </main>
+  </div>
 </template>
 
 <script>
-import LandingPage from './components/LandingPage.vue';
 import NavBar from './components/NavBar.vue';
 import 'bootstrap/dist/css/bootstrap.css';
 
 export default {
   name: 'App',
   components: {
-    LandingPage,
     NavBar
-  }
+  },
 }
 </script>
 

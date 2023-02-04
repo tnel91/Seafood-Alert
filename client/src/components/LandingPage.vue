@@ -7,7 +7,7 @@
   </div>
   <div>
     <ul>
-      <li class="card" v-for="(result, index) in searchResults" :key="index">
+      <li class="card" v-for="(result, index) in searchResults" :key="index" @click="goToFishDetails(result['Path'])">
         <h3>{{ result['Species Name'] }}</h3>
         <h5>{{ result['Scientific Name'] }}</h5>
         <p>{{ result['Population'] }}</p>
@@ -31,6 +31,20 @@ data: ()=>({
 
 methods: {
 
+  removePath(url) {
+    return url.replace('/profiles/', '')
+  },
+
+  goToFishDetails(path) {
+    let updatedPath = this.removePath(path)
+    this.$router.push({
+      name: 'FishDetails',
+      params: {
+        id: updatedPath
+      }
+    })
+  },
+
   async handleSubmit() {
     await axios.get('https://www.fishwatch.gov/api/species')
       .then((res) => {
@@ -48,11 +62,13 @@ methods: {
         } else {
           h4.style.display = 'none'
         }
+      }).catch((err) => {
+        console.log(err)
       })
     this.searchInput = ''
   }
-
 },
+
 }
 </script>
 
