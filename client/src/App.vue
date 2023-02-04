@@ -39,7 +39,7 @@ export default {
 
 [class*='col-'] {
   /* background-color: #eee; */
-  /* border: 1px solid #ddd; */
+  border: 1px solid #ddd;
   padding-bottom: 15px;
   padding-top: 15px;
   display: flex;

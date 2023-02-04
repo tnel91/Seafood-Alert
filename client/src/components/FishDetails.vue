@@ -10,47 +10,45 @@
       </div>
 
       <div class="col-12">
-        <h3 class="border p-3 mb-3">{{ fish['Species Name'] }}</h3>
+        <h3 class="p-3 mb-3">{{ fish['Species Name'] }}</h3>
       </div>
 
-      <div class="col-sm-6 text-center">
-        <h5 class="text-center">
+      <div class="col-sm-6">
+        <span class="mx-2">Scientific Name:</span>
+        <h5 class="italic mx-2 mb-0">
           {{ fish['Scientific Name'] }}
         </h5>
       </div>
 
       <div class="col-sm-6">
-        <p class="underline">Other names:</p>
-        <div id="aliases" class="" v-html="fish['Species Aliases']"></div>
+        <u class="mx-2">Other names:</u>
+        <div id="aliases" class="mx-2" v-html="fish['Species Aliases']"></div>
       </div>
 
-      <div>
-        <div
-          class="border p-3 mb-3 container"
-          v-html="fish['Physical Description']"
-        ></div>
+      <div class="col-12">
+        <div class="" v-html="fish['Physical Description']"></div>
       </div>
 
-      <div>
-        <div class="border p-3 mb-3 container" v-html="fish['Location']"></div>
+      <div class="col-12">
+        <div class="" v-html="fish['Location']"></div>
       </div>
 
-      <div>
-        <div class="border p-3 mb-3 container" v-html="fish['Habitat']"></div>
+      <div class="col-12 col-md-6">
+        <div class="" v-html="fish['Habitat']"></div>
       </div>
 
-      <div>
-        <p class="border p-3 mb-3">{{ fish['Population'] }}</p>
+      <div class="col-12 col-md-6">
+        <p class="">{{ fish['Population'] }}</p>
       </div>
 
-      <div>
-        <p class="border p-3 mb-3">{{ fish['Habitat Impacts'] }}</p>
+      <div class="col-12">
+        <p class="">{{ fish['Habitat Impacts'] }}</p>
       </div>
 
-      <div class="container">
+      <div class="py-0 col-12 container">
         <div class="row">
           <div
-            class="col-3"
+            class="col-12 col-sm-6 col-md-4 col-lg-3 img-container"
             v-for="(image, i) in fish['Image Gallery']"
             :key="i"
           >
@@ -60,11 +58,8 @@
         </div>
       </div>
 
-      <div>
-        <div
-          class="border p-3 mb-3 container"
-          v-html="fish['Availability']"
-        ></div>
+      <div class="col-6">
+        <div class="" v-html="fish['Availability']"></div>
       </div>
 
       <div>
@@ -129,13 +124,8 @@ export default {
 </script>
 
 <style>
-#details {
-  /* margin-top: 100px; */
-}
-
-.underline {
-  text-decoration: underline;
-  margin: 0;
+.italic {
+  font-style: italic;
 }
 
 #aliases a {
@@ -151,5 +141,26 @@ export default {
 
 #illustration img {
   height: 100%;
+}
+
+.img-container {
+  max-height: 300px;
+  flex-direction: column;
+  position: relative;
+}
+
+.img-fluid {
+  max-height: 100%;
+}
+
+.img-container:hover p {
+  display: block;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0.5rem;
+}
+
+.img-container p {
+  display: none;
 }
 </style>
