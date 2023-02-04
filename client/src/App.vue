@@ -21,7 +21,8 @@ export default {
 
   methods: {
     removePath(url) {
-      return url.replace('/profiles/', '')
+      let a = url.replace('/profiles/', '')
+      return a.replace('-farmed', '')
     }
   }
 }

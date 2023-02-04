@@ -96,8 +96,8 @@ export default {
       axios
         .get(`https://www.fishwatch.gov/api/species/${this.$route.params.id}`)
         .then((res) => {
-          const oneFish = res.data[0]
-          this.fish = oneFish
+          this.fish = res.data[0]
+          console.log(res.data[0])
         })
         .catch(() => {
           console.log('ERROR Trying Again...')
@@ -114,7 +114,7 @@ export default {
               console.log(err)
             })
         })
-    }, 200)
+    }, 1)
   }
 }
 </script>
