@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue';
-import 'bootstrap/dist/css/bootstrap.css';
+import NavBar from './components/NavBar.vue'
+import 'bootstrap/dist/css/bootstrap.css'
 
 export default {
   name: 'App',
@@ -21,8 +21,8 @@ export default {
 
   methods: {
     removePath(url) {
-    return url.replace('/profiles/', '')
-  }
+      return url.replace('/profiles/', '')
+    }
   }
 }
 </script>
@@ -34,15 +34,17 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
-[class*="col-"] {
+[class*='col-'] {
   /* background-color: #eee; */
   /* border: 1px solid #ddd; */
   padding-bottom: 15px;
   padding-top: 15px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 nav {
@@ -57,5 +59,4 @@ main {
   position: relative;
   top: 80px;
 }
-
 </style>
