@@ -7,7 +7,7 @@
   </div>
   <div>
     <ul>
-      <li class="card" v-for="(result, index) in searchResults" :key="index" @click="goToFishDetails(result['Path'])">
+      <li class="card" v-for="(result, i) in searchResults" :key="i" @click="goToFishDetails(result['Path'])">
         <h3>{{ result['Species Name'] }}</h3>
         <h5>{{ result['Scientific Name'] }}</h5>
         <p>{{ result['Population'] }}</p>
@@ -21,19 +21,21 @@
 import axios from 'axios';
 
 export default {
-
 name: 'LandingPage',
-
 data: ()=>({
   searchInput: '',
   searchResults: null
 }),
 
+props: {
+  removePath: {
+    type: Function,
+  }
+},
+
 methods: {
 
-  removePath(url) {
-    return url.replace('/profiles/', '')
-  },
+
 
   goToFishDetails(path) {
     let updatedPath = this.removePath(path)

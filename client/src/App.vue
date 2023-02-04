@@ -2,7 +2,7 @@
   <div id="app">
     <NavBar />
     <main>
-      <RouterView header="Fish Guide"></RouterView>
+      <RouterView header="Fish Guide" :removePath="removePath"></RouterView>
     </main>
   </div>
 </template>
@@ -16,6 +16,12 @@ export default {
   components: {
     NavBar
   },
+
+  methods: {
+    removePath(url) {
+    return url.replace('/profiles/', '')
+  }
+  }
 }
 </script>
 
