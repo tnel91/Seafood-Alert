@@ -1,7 +1,7 @@
 <template>
   <form class="" @submit.prevent="handleSubmit">
     <input type="text" v-model="searchInput" placeholder="Search by name" />
-    <button class="" type="submit">Search</button>
+    <button class="btn btn-primary" type="submit">Search</button>
   </form>
 
   <div id="fishBowl" class="container">
@@ -110,7 +110,7 @@ export default {
 
 form {
   position: fixed;
-  top: 80px;
+  top: 120px;
   width: 100%;
   height: 70px;
   z-index: 1;

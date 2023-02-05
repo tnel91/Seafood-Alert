@@ -180,29 +180,11 @@ export default {
   height: 100%;
 }
 
-.img-container {
-  max-height: 300px;
-  flex-direction: column;
-  position: relative;
-}
-
 .img-fluid {
   max-height: 100%;
 }
 
-.img-container:hover p {
-  display: block;
-  position: absolute;
-  color: black;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 0.5rem;
-}
-
-.img-container p {
-  display: none;
-}
-
 #fish-intro {
-  background-color: rgba(128, 128, 128, 0.527);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 </style>

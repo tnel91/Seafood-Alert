@@ -4,8 +4,9 @@
       <div class="nav-home p-0 col-2">
         <router-link class="navbar-text" to="/">Home</router-link>
       </div>
-      <div class="nav-title col-8 text-center">
+      <div class="nav-title col-8 text-center flex-column">
         <h2 class="navbar-text">Seafood Alert</h2>
+        <p>Your guide to US Fisheries</p>
       </div>
       <div class="col-2"></div>
     </div>
@@ -20,9 +21,12 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Lalezar&family=Oswald&family=Source+Code+Pro:wght@700&family=Syne+Mono&display=swap');
+
 nav {
-  background-color: #eee;
-  height: 80px;
+  background-color: #e6ecfa;
+  height: 120px;
+  font-family: Oswald, sans-serif;
 }
 
 .nav-title h2 {

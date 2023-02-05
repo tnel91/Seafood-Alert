@@ -66,7 +66,7 @@ main {
   background-image: url('https://images.unsplash.com/photo-1543988884-c01cfa7b41c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80');
   background-size: cover;
   position: relative;
-  top: 70px;
+  top: 110px;
   min-height: 800px;
 }
 </style>
