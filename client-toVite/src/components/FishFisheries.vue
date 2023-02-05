@@ -98,7 +98,9 @@ export default {
 </script>
 
 <style>
-#fish-info div {
+#fish-info > div {
+  background-color: #eee;
+  border: 1px solid #ddd;
   flex-direction: column;
 }
 </style>

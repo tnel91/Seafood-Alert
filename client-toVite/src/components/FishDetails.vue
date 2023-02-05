@@ -8,16 +8,19 @@
           :alt="fish['Species Illustration Photo'].alt"
         />
       </div>
+      <div class="col-3"></div>
 
-      <div class="col-12 flex-column">
+      <div id="fish-intro" class="border col-6 flex-column">
         <h2 class="mb-3">{{ fish['Species Name'] }}</h2>
         <h5 class="italic mb-3">
           {{ fish['Scientific Name'] }}
         </h5>
         <p class="mb-1"><b>Other names</b></p>
         <div id="aliases" class="" v-html="fish['Species Aliases']"></div>
+        <h4 class="pt-4 underline">Click a tab</h4>
       </div>
-      <h4 class="underline">Click a tab</h4>
+
+      <div class="col-3"></div>
 
       <div class="col-12 btn-group" role="group">
         <button
@@ -134,7 +137,7 @@ export default {
 
 <style>
 .fish-button {
-  background-color: #27807d;
+  background-color: #ec7741;
   color: #000000;
 }
 
@@ -197,5 +200,9 @@ export default {
 
 .img-container p {
   display: none;
+}
+
+#fish-intro {
+  background-color: rgba(128, 128, 128, 0.527);
 }
 </style>

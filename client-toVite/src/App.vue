@@ -63,6 +63,8 @@ export default {
 
 main {
   background-color: rgb(170, 255, 255);
+  background-image: url('https://images.unsplash.com/photo-1543988884-c01cfa7b41c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80');
+  background-size: cover;
   position: relative;
   top: 70px;
   min-height: 800px;
