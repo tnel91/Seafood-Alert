@@ -20,4 +20,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+nav {
+  background-color: #eee;
+  height: 80px;
+}
+</style>

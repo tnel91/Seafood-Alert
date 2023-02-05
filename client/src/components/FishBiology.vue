@@ -1,7 +1,7 @@
 <template>
   <div id="bio-info" class="row">
-    <div
-      class="col-12 p-0"
+    <button
+      class="col-12 p-0 m-2 btn btn-primary btn-lg btn-block"
       v-for="(section, i) in sections"
       :key="i"
       @click="toggleSection(i)"
@@ -12,7 +12,7 @@
       <div class="content" v-if="section.isActive">
         <div v-html="section.content"></div>
       </div>
-    </div>
+    </button>
   </div>
 </template>
 
@@ -21,7 +21,8 @@
 export default {
   name: 'FishBiology',
   props: {
-    fish: Object
+    fish: Object,
+    changeLinkTarget: Function
   },
   data: () => ({
     sections: null
@@ -48,12 +49,24 @@ export default {
 </script>
 
 <style>
-#bio-info > div {
+#bio-info > button {
   flex-direction: column;
   text-align: left;
 }
 
 .content {
   width: 100%;
+}
+
+a {
+  color: #000;
+}
+
+a:hover {
+  color: #000;
+}
+
+a:visited {
+  color: #000;
 }
 </style>

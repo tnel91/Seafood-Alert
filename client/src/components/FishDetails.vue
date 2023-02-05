@@ -31,7 +31,7 @@
       </div>
 
       <div id="FishBiology" class="sect col-12">
-        <FishBiology :fish="fish" />
+        <FishBiology :fish="fish" :changeLinkTarget="changeLinkTarget" />
       </div>
 
       <div id="FishFisheries" class="sect col-12">
@@ -69,6 +69,9 @@ export default {
   props: {
     removePath: {
       type: Function
+    },
+    changeLinkTarget: {
+      type: Function
     }
   },
 
@@ -82,6 +85,7 @@ export default {
           document.getElementById(p).style.display = 'none'
         }
       })
+      this.changeLinkTarget()
     },
 
     stringToHtml(str) {
@@ -97,7 +101,7 @@ export default {
         .get(`https://www.fishwatch.gov/api/species/${this.$route.params.id}`)
         .then((res) => {
           this.fish = res.data[0]
-          console.log(res.data[0])
+          // console.log(res.data[0])
         })
         .catch(() => {
           console.log('ERROR Trying Again...')

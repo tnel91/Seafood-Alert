@@ -4,7 +4,11 @@
       <NavBar />
     </div>
     <main>
-      <RouterView header="Fish Guide" :removePath="removePath"></RouterView>
+      <RouterView
+        header="Fish Guide"
+        :removePath="removePath"
+        :changeLinkTarget="changeLinkTarget"
+      ></RouterView>
     </main>
   </div>
 </template>
@@ -23,6 +27,25 @@ export default {
     removePath(url) {
       let a = url.replace('/profiles/', '')
       return a.replace('-farmed', '')
+    },
+    changeLinkTarget() {
+      console.log('fired')
+      let links = document.links
+      // console.log(links)
+      // console.log(links[5])
+      // console.log(links[5].target)
+
+      // console.log(links[5].hostname, window.location.hostname)
+      for (let i = 0; i < links.length; i++) {
+        if (links[i].hostname !== window.location.hostname) {
+          // console.log(links[i].target)
+          links[i].target = '_blank'
+          links[i].rel = 'noopener noreferrer'
+          // console.log(links[i].target)
+        }
+      }
+      // console.log(links[5])
+      // console.log(links[5].target)
     }
   }
 }
@@ -34,13 +57,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin: 0 auto;
 }
 
 [class*='col-'] {
   /* background-color: #eee; */
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   padding-bottom: 15px;
   padding-top: 15px;
   display: flex;
@@ -48,18 +70,10 @@ export default {
   align-items: center;
 }
 
-nav {
-  background-color: #eee;
-  border: 1px solid #ddd;
-  padding-top: 10px;
-  /* position: fixed; */
-  height: 80px;
-}
-
 main {
   background-color: rgb(170, 255, 255);
   position: relative;
-  top: 80px;
+  top: 70px;
   min-height: 800px;
 }
 </style>
