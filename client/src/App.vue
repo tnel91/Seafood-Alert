@@ -29,23 +29,14 @@ export default {
       return a.replace('-farmed', '')
     },
     changeLinkTarget() {
-      console.log('fired')
+      console.log('changeLinkTarget called')
       let links = document.links
-      // console.log(links)
-      // console.log(links[5])
-      // console.log(links[5].target)
-
-      // console.log(links[5].hostname, window.location.hostname)
       for (let i = 0; i < links.length; i++) {
         if (links[i].hostname !== window.location.hostname) {
-          // console.log(links[i].target)
           links[i].target = '_blank'
           links[i].rel = 'noopener noreferrer'
-          // console.log(links[i].target)
         }
       }
-      // console.log(links[5])
-      // console.log(links[5].target)
     }
   }
 }

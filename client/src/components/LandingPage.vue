@@ -24,7 +24,7 @@
       </div>
     </div>
   </div>
-  <h4>No Results Found</h4>
+  <h4 class="hide">No Results Found</h4>
 </template>
 
 <script>
@@ -66,11 +66,11 @@ export default {
             }
           })
           this.fishes = filteredFishes
-          const h4 = document.querySelector('h4')
+          const hide = document.querySelector('.hide')
           if (this.fishes.length === 0) {
-            h4.style.display = 'block'
+            hide.style.display = 'block'
           } else {
-            h4.style.display = 'none'
+            hide.style.display = 'none'
           }
         })
         .catch((err) => {
@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style>
-h4 {
+.hide {
   display: none;
 }
 .card {

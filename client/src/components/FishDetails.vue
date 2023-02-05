@@ -17,15 +17,26 @@
         <p class="mb-1"><b>Other names</b></p>
         <div id="aliases" class="" v-html="fish['Species Aliases']"></div>
       </div>
+      <h4 class="underline">Click a tab</h4>
 
-      <div class="col-12 container">
-        <button @click="togglePages('FishBiology')" class="col-4">
+      <div class="col-12 btn-group" role="group">
+        <button
+          @click="togglePages('FishBiology')"
+          class="fish-button col-4 btn btn-primary btn-lg"
+          type="button"
+        >
           Biology
         </button>
-        <button @click="togglePages('FishFisheries')" class="col-4">
+        <button
+          @click="togglePages('FishFisheries')"
+          class="fish-button col-4 btn btn-primary btn-lg"
+        >
           Fisheries
         </button>
-        <button @click="togglePages('FishGallery')" class="col-4">
+        <button
+          @click="togglePages('FishGallery')"
+          class="fish-button col-4 btn btn-primary btn-lg"
+        >
           Gallery
         </button>
       </div>
@@ -35,14 +46,12 @@
       </div>
 
       <div id="FishFisheries" class="sect col-12">
-        <FishFisheries :fish="fish" />
+        <FishFisheries :fish="fish" :changeLinkTarget="changeLinkTarget" />
       </div>
 
       <div id="FishGallery" class="sect col-12">
         <FishGallery :fish="fish" />
       </div>
-
-      <p class="border p-3 mb-3 container">{{ fish['Quote'] }}</p>
     </div>
   </div>
 </template>
@@ -124,6 +133,23 @@ export default {
 </script>
 
 <style>
+.fish-button {
+  background-color: #27807d;
+  color: #000000;
+}
+
+.fish-button:hover {
+  background-color: #b35252;
+}
+
+/* .fish-button:active {
+  background-color: #14a414;
+} */
+
+.fish-button:focus {
+  outline: none;
+}
+
 .sect {
   display: none;
 }

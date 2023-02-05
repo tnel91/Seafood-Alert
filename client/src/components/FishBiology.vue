@@ -1,14 +1,18 @@
 <template>
   <div id="bio-info" class="row">
     <button
-      class="col-12 p-0 m-2 btn btn-primary btn-lg btn-block"
+      class="col-12 p-2 m-2 btn btn-primary btn-lg btn-block"
       v-for="(section, i) in sections"
       :key="i"
       @click="toggleSection(i)"
     >
-      <p v-if="section.content" :name="section.slotName">
-        {{ section.slotName }}
-      </p>
+      <h4
+        v-if="section.content"
+        :name="section.slotName"
+        class="text-uppercase"
+      >
+        <b> {{ section.slotName }} </b>
+      </h4>
       <div class="content" v-if="section.isActive">
         <div v-html="section.content"></div>
       </div>
@@ -29,19 +33,20 @@ export default {
   }),
   methods: {
     toggleSection(i) {
-      console.log('toggleSection', i)
       this.sections[i].isActive = !this.sections[i].isActive
+      this.changeLinkTarget()
     }
   },
   created() {
     this.sections = [
       {
         content: this.fish['Physical Description'],
-        slotName: 'physical-description',
+        slotName: 'physical description',
         isActive: false
       },
       { content: this.fish['Biology'], slotName: 'biology', isActive: false },
       { content: this.fish['Location'], slotName: 'location', isActive: false },
+      { content: this.fish['Habitat'], slotName: 'habitat', isActive: false },
       { content: this.fish['Research'], slotName: 'research', isActive: false }
     ]
   }
@@ -49,7 +54,8 @@ export default {
 </script>
 
 <style>
-#bio-info > button {
+#bio-info > button,
+#fish-info > button {
   flex-direction: column;
   text-align: left;
 }
@@ -67,6 +73,6 @@ a:hover {
 }
 
 a:visited {
-  color: #000;
+  color: #353535;
 }
 </style>
