@@ -86,8 +86,16 @@ export default {
       .then((res) => {
         this.fishes = res.data
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {
+        console.log('ERROR Trying Again...')
+        axios
+          .get('https://www.fishwatch.gov/api/species')
+          .then((res) => {
+            this.fishes = res.data
+          })
+          .catch((err) => {
+            console.log(err)
+          })
       })
   }
 }
