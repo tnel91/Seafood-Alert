@@ -29,6 +29,14 @@ Seafood Alert is a front-end application that utilizes NOAA's [FishWatch](https:
 
 ---
 
+### **_Screenshots_**
+
+![Imgur](https://i.imgur.com/UimUSGs.png)
+
+![Imgur](https://i.imgur.com/ShIl9lr.png)
+
+---
+
 ### Credits
 
 ##### Project Prompt: [FishWatch](https://www.fishwatch.gov/)

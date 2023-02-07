@@ -1,14 +1,14 @@
 <template>
   <nav>
     <div class="row align-items-center">
-      <div class="nav-home p-0 col-2">
+      <div class="nav-home p-0 col-3 col-sm-2">
         <router-link class="navbar-text" to="/">Home</router-link>
       </div>
-      <div class="nav-title col-8 text-center flex-column">
+      <div class="nav-title col-6 col-sm-8 text-center flex-column">
         <h2 class="navbar-text">Seafood Alert</h2>
         <p>Your guide to US Fisheries</p>
       </div>
-      <div class="col-2"></div>
+      <div class="col-3 col-sm-2"></div>
     </div>
   </nav>
 </template>
@@ -37,7 +37,6 @@ nav {
 .nav-home {
   font-size: 2em;
   font-weight: bold;
-  transition: all 0.2s ease-in-out;
 }
 
 .nav-home a {
@@ -45,10 +44,12 @@ nav {
   width: 100%;
   height: 100%;
   color: black;
+  text-align: right;
 }
 
 .nav-home a:hover {
   color: blue;
   background-color: lightgray;
+  text-decoration: underline;
 }
 </style>
