@@ -39,6 +39,9 @@ export default defineConfig({
     port: 8080,
     hot: true
   },
-
-  build: {}
+  root: './',
+  build: {
+    outDir: './src/dist'
+  },
+  publicDir: './public'
 })
